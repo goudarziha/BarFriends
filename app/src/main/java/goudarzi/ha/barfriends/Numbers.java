@@ -1,8 +1,12 @@
 package goudarzi.ha.barfriends;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.sql.SQLException;
 
 public class Numbers {
 
@@ -35,11 +39,36 @@ public class Numbers {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int i, int i2) {
-
+            db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
+            onCreate(db);
         }
     }
 
     public Numbers(Context c) {
         ourContext = c;
+    }
+
+    public Numbers open() throws SQLException {
+        ourHelper = new DbHelper(ourContext);
+        ourDatabase = ourHelper.getWritableDatabase();
+        return this;
+    }
+
+    public void close() {
+        ourHelper.close();
+    }
+
+    public long createEntry(String names, String numbers) {
+        ContentValues cv = new ContentValues();
+        cv.put(KEY_NAME, names);
+        cv.put(KEY_NUMBER, numbers);
+        return ourDatabase.insert(DATABASE_TABLE, null, cv);
+    }
+
+    public String getData() {
+        String[] columns = new String[] { KEY_ROWID, KEY_NAME, KEY_NUMBER };
+        Cursor c = ourDatabase.query(DATABASE_TABLE, columns, null, null, null, null, null);
+        String result = "";
+        return null;
     }
 }
