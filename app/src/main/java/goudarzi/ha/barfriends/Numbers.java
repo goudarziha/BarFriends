@@ -69,6 +69,15 @@ public class Numbers {
         String[] columns = new String[] { KEY_ROWID, KEY_NAME, KEY_NUMBER };
         Cursor c = ourDatabase.query(DATABASE_TABLE, columns, null, null, null, null, null);
         String result = "";
-        return null;
+
+        int iRow = c.getColumnIndex(KEY_ROWID);
+        int iName = c.getColumnIndex(KEY_NAME);
+        int iNumber = c.getColumnIndex(KEY_NUMBER);
+
+        for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+            result = result + c.getString(iRow) + " " + c.getString(iName) + "\t\t\t" +
+                    c.getString(iNumber) + "\n";
+        }
+        return result;
     }
 }

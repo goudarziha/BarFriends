@@ -74,20 +74,21 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="30dp">
+        android:padding="1dp">
 
         <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit"
             android:id="@+id/bSubmit"
-            android:layout_gravity="center_horizontal" />
-
-        <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="View"
+            android:layout_gravity="center_horizontal"
+            android:text="Submit" />
+
+        <Button
             android:id="@+id/bView"
-            android:layout_gravity="center_horizontal" />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="View" />
+
     </LinearLayout>
 </LinearLayout>

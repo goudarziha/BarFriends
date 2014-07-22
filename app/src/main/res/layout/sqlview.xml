@@ -10,25 +10,54 @@
         android:layout_height="fill_parent">
 
         <TableRow>
+
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="Name:"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="Name:" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="Number:"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="Number:" />
         </TableRow>
     </TableLayout>
 
-            <TextView
-                android:id="@+id/tvSQLinfo"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="get info from db" />
+    <TextView
+        android:id="@+id/tvSQLinfo"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="get info from db" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etSQLrowInfo"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/bGetInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Get Information" />
+
+    <Button
+        android:id="@+id/bModify"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Edit Entry" />
+
+    <Button
+        android:id="@+id/bDelete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Delete Entry" />
+
 </LinearLayout>
