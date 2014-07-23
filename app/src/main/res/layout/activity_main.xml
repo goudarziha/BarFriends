@@ -67,6 +67,14 @@
             android:ems="10"
             android:hint="Type number here"
             android:inputType="phone" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do you think I'm cute?"
+            android:id="@+id/cbCute"
+            android:layout_gravity="center" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -82,13 +90,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Submit" />
-
-        <Button
-            android:id="@+id/bView"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="View" />
 
     </LinearLayout>
 </LinearLayout>

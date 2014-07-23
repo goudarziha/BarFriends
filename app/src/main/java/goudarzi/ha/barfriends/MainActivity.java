@@ -21,7 +21,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     final Context context = this;
     EditText name, number;
-    Button submit, view;
+    Button submit;
     CheckBox cute;
 
     @Override
@@ -74,8 +74,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         number = (EditText) findViewById(R.id.etNumber);
         submit = (Button) findViewById(R.id.bSubmit);
         submit.setOnClickListener(this);
-        view = (Button) findViewById(R.id.bView);
-        view.setOnClickListener(this);
         cute = (CheckBox) findViewById(R.id.cbCute);
         cute.setVisibility(View.INVISIBLE);
     }
@@ -93,10 +91,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     i.setType("vnd.android-dir/mms-sms");
                     i.putExtra("address", numbers);
                     if (cute.isChecked()) {
-                        i.putExtra("sms_body", "Hey, " + names + ", it was nice meeting you and I think " +
+                        i.putExtra("sms_body", "Hey " + names + ", it was nice meeting you and I think " +
                                 "you are really cute too! ;)");
                     } else {
-                        i.putExtra("sms_body", "Hey, " + names + ", it was nice meeting you!");
+                        i.putExtra("sms_body", "Hey " + names + ", it was nice meeting you!");
                     }
                     startActivity(i);
 
@@ -118,10 +116,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         Toast.makeText(this, "Success!", Toast.LENGTH_LONG).show();
                     }
                 }
-                break;
-            case R.id.bView:
-                Intent i = new Intent(this, FriendView.class);
-                startActivity(i);
                 break;
         }
     }

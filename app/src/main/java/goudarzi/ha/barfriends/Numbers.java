@@ -22,6 +22,39 @@ public class Numbers {
     private Context ourContext;
     private SQLiteDatabase ourDatabase;
 
+    public String getName(long l) throws SQLException {
+        String[] columns = new String[] { KEY_ROWID, KEY_NAME, KEY_NUMBER };
+        Cursor c = ourDatabase.query(DATABASE_TABLE, columns, KEY_ROWID + "=" + l, null, null, null, null);
+        if ( c != null) {
+            c.moveToFirst();
+            String name = c.getString(1);
+            return name;
+        }
+        return null;
+    }
+
+    public String getNumber(long l) throws SQLException {
+        String[] columns = new String[] { KEY_ROWID, KEY_NAME, KEY_NUMBER };
+        Cursor c = ourDatabase.query(DATABASE_TABLE, columns, KEY_ROWID + "=" + l, null, null, null, null);
+        if ( c != null) {
+            c.moveToFirst();
+            String number = c.getString(3);
+            return number;
+        }
+        return null;
+    }
+
+    public void updateEntry(int lRow, String sName, String sNumber) throws SQLException  {
+        ContentValues cvUpdate = new ContentValues();
+        cvUpdate.put(KEY_NAME, sName);
+        cvUpdate.put(KEY_NUMBER, sNumber);
+        ourDatabase.update(DATABASE_TABLE, cvUpdate, KEY_ROWID + "=" + lRow, null);
+    }
+
+    public void deleteEntry(int iRow) throws SQLException {
+        ourDatabase.delete(DATABASE_TABLE, KEY_ROWID + "=" + iRow, null);
+    }
+
     private static class DbHelper extends SQLiteOpenHelper {
 
         public DbHelper(Context context) {
