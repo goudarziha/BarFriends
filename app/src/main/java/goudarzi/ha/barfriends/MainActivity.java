@@ -102,6 +102,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     entry.open();
                     entry.createEntry(names, numbers);
                     entry.close();
+
                 } catch (Exception e) {
                     working = false;
                     String error = e.toString();
